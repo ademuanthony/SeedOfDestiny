@@ -1,0 +1,57 @@
+<ons-navigator>
+    
+    
+    <ons-page ng-controller="favouritesController">
+        <ons-toolbar>
+          <div class="left">
+            <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+          </div>
+          <div class="center">
+            Favourites
+          </div>
+          
+        </ons-toolbar>
+
+       <div style="padding:10px;" ng-show="favourites.length == 0">
+        <p style="color:red;">Your favourite list is empty. Click the <i class="fa fa-star-o"></i> at the top of
+        a seed to add it to favourite</p>
+       </div>
+
+        <ons-list class="plan-list">
+          <ons-list-item modifier="chevron" class="plan" ng-click="readFavourite(seed)" ng-repeat="seed in favourites">
+            <ons-row>
+              <ons-col width="80px" class="plan-left">
+                <div class="plan-date">{{seed.day + '-' + seed.month + '-' + seed.year}}</div>
+                <!--<div class="plan-duration">1h</div>-->
+              </ons-col>
+
+              <ons-col width="6px" class="plan-center" ng-style="{backgroundColor:a % 3 == 1 ? '#3399ff' : '#ccc'}">
+              </ons-col>
+
+              <ons-col class="plan-right">
+                <div class="plan-name">{{seed.title}}</div>
+
+                <!--<div class="plan-info">
+                  <div ng-hide="a % 4 == 0">
+                    <ons-icon icon="fa-phone"></ons-icon>123-456-789
+                  </div>
+
+                  <div ng-hide="a % 3 == 0">
+                    <ons-icon icon="fa-map-marker"></ons-icon>Moscone, San Francisco
+                  </div>
+                </div>-->
+              </ons-col>
+            </ons-row>
+          </ons-list-item>
+
+        </ons-list>
+
+
+
+      </ons-page>
+    
+    
+    
+    
+    
+</ons-navigator>

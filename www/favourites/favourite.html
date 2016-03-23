@@ -1,0 +1,23 @@
+<ons-page ng-controller="favouriteController">
+
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+        </div>
+        <div class="center">Favourite</div>
+        <div class="right">
+            <ons-toolbar-button ng-click="delete()">
+              <ons-icon icon="fa fa-times" fixed-width="false" style="vertical-align: -4px;"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+    </ons-toolbar>
+    
+
+    <div style="text-align: center"> 
+        <h4>{{seed.title}}</h4>
+        <hr/>
+        <p style="font-size:10px;"><i>{{seed.date | date:"fullDate"}}</i><p>
+    </div>
+    <div style="padding:10px; text-align:justify;" ng-bind-html="seed.content | trustAsHtml"></div>
+
+</ons-page>

@@ -1,0 +1,32 @@
+<ons-page>
+    
+    
+    <ons-pull-hook var="loader" ng-action="refresh($done)">
+        <span ng-switch="loader.getCurrentState()">
+          <span ng-switch-when="initial">Pull down to refresh</span>
+          <span ng-switch-when="preaction">Release to refresh</span>
+          <span ng-switch-when="action">Loading data. Please wait...</span>
+        </span>
+      </ons-pull-hook>
+
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+        </div>
+        <div class="center">Seed of Destiny</div>
+        <div class="right">
+            <ons-toolbar-button ng-click="toggleFavourite('tomorrow')">
+              <ons-icon ng-show="isFavourite.tomorrow" icon="fa fa-star" fixed-width="false" style="vertical-align: -4px;"></ons-icon>
+              <ons-icon ng-show="!isFavourite.tomorrow" icon="fa fa-star-o" fixed-width="false" style="vertical-align: -4px;"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+    </ons-toolbar>
+
+    <div style="text-align: center"> 
+        <h4>{{tomorrow.title}}</h4>
+        <hr/>
+        <p style="font-size:10px;"><i>{{tomorrow.date | date:"fullDate"}}</i><p>
+    </div>
+    <div style="padding:10px; text-align:justify;" ng-bind-html="tomorrow.content | trustAsHtml"></div>
+
+</ons-page>
